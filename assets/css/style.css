@@ -592,7 +592,8 @@ section {
 
 .features .nav-link.active {
   transition: 0.3s;
-  background: var(--color-secondary) linear-gradient(rgba(var(--color-primary-rgb), 0.95), rgba(var(--color-primary-rgb), 0.6));
+  /* background: var(--color-secondary) linear-gradient(rgba(var(--color-primary-rgb), 0.95), rgba(var(--color-primary-rgb), 0.6)); */
+  background: var(--color-secondary) linear-gradient(rgba(var(--color-primary-rgb), 0.50), rgba(45,97,166,1));
   border-color: var(--color-primary);
 }
 
