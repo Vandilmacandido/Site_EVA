@@ -380,11 +380,23 @@ h6 {
   font-family: "Poppins", sans-serif;
 }
 
+@media (max-width: 991px) {
+  #hero h1 {
+    color: #F2A30F;
+  }
+}
+
 #hero h2 {
   color: #515f7d;
   margin-bottom: 50px;
   font-size: 20px;
 }
+@media (max-width: 991px) {
+  #hero h2 {
+    color: #F2A30F;
+  }
+}
+
 
 #hero .download-btn {
   font-family: "Raleway", sans-serif;
