@@ -38,15 +38,24 @@
 
   /* Primay colors */
   --color-primary: #2D61A6;
+<<<<<<< HEAD
   --color-primary-light: #658CBF;
   --color-primary-dark: #4B83A6;
+=======
+  --color-primary-light: #1ec3e0;
+  --color-primary-dark: #0189a1;
+>>>>>>> 84f9cb265bb1a2c50669a534521c3a2bc7c41319
 
-  --color-primary-rgb: 14, 162, 189;
+  --color-primary-rgb: 72, 168, 228;
   --color-primary-light-rgb: 30, 195, 224;
   --color-primary-dark-rgb: 1, 137, 161;
 
   /* Secondary colors */
+<<<<<<< HEAD
   --color-secondary: #2D61A6;
+=======
+  --color-secondary: #658CBF;
+>>>>>>> 84f9cb265bb1a2c50669a534521c3a2bc7c41319
   --color-secondary-light: #8f9fae;
   --color-secondary-dark: #3a4753;
 
