@@ -216,8 +216,7 @@
 
         <div  class="text-center">
           <h3>Contate-nos</h3>
-          <p class="mb-4">Ea vitae aspernatur deserunt voluptatem impedit deserunt magnam occaecati dssumenda quas ut ad dolores adipisci aliquam.</p>
-        </div>
+            </div>
 
       </div>
       <div class="container">
@@ -227,8 +226,8 @@
           <div class="col-lg-4">
 
             <div class="info">
-              <h3>Entre em contato</h3>
-              <p>Et id eius voluptates atque nihil voluptatem enim in tempore minima sit ad mollitia commodi minus.</p>
+              <h3>Quer conhecer a nossa plataforma?</h3>
+              <p>Solicite sua conta e teste a ferramenta de forma gratuita e sem restrições por 30 dias! Conheça também com nosso time a promoção de pré-venda!</p>
 
               <div class="info-item d-flex">
                 <i class="bi bi-envelope flex-shrink-0"></i>
@@ -251,32 +250,31 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+             <form id="email-form" action="https://api.staticforms.xyz/submit" method="post" role="form" class="email-form">
+              <input type="hidden" name="accessKey" value="3420cf37-5861-4204-ae15-817287048317">
+              <input type="text" name="honeypot" style="display: none;">
               <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Nome" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="text" name="empresa" class="form-control" id="name" placeholder="Empresa" required>
-                </div>
+                  <div class="col-md-6 form-group">
+                      <input type="text" name="name" class="form-control" id="name" placeholder="Nome" required>
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                      <input type="text" name="$empresa" class="form-control" id="empresa" placeholder="Empresa" required>
+                  </div>
               </div>
               <div class="form-group mt-3">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Seu e-mail" required>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Seu e-mail" required>
               </div>
-
-              <div class="kv-ee-fieldSubscribe-container">
-                <label>
-                  <input type="checkbox" id="fieldSubscribe" value="false" data-namelabel="Ao selecionar esta caixa e enviar seus dados, iremos entrar em contato para garantir seu acesso a nossa plataforma assim como enviar as orientações necessárias." aria-label="Ao selecionar esta caixa e enviar seus dados, iremos entrar em contato para garantir seu acesso a nossa plataforma assim como enviar as orientações necessárias.">
-                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum obcaecati, exercitationem illum aspernatur veritatis magnam earum commodi vero, delectus, fugit atque incidunt. Reprehenderit amet nesciunt aliquam, distinctio quisquam asperiores dolorum.
-                </label>
-              </div>
+              <label>
+                  <input type="checkbox" name="$receber_email" id="receber_email" value="sim" data-namelabel="Ao selecionar esta caixa e enviar seus dados, iremos entrar em contato para garantir seu acesso a nossa plataforma assim como enviar as orientações necessárias." aria-label="Ao selecionar esta caixa e enviar seus dados, iremos entrar em contato para garantir seu acesso a nossa plataforma assim como enviar as orientações necessárias.">
+                  Ao selecionar esta caixa e enviar seus dados, iremos entrar em contato para garantir seu acesso a nossa plataforma assim como enviar as orientações necessárias.
+              </label>
               <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <div class="loading" style="display: none;">Loading</div>
+                  <div class="error-message" style="display: none;"> Erro</div>
+                  <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+          </form>
           </div><!-- End Contact Form -->
 
         </div>
@@ -297,6 +295,85 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/video.js"></script>
+
+  <script>
+    document.getElementById("email-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Exibir o elemento de "loading"
+    var loadingElement = document.querySelector('.loading');
+    loadingElement.style.display = 'block';
+
+    // Pegar os valores dos inputs
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let checkbox = document.getElementById('receber_email').value;
+    let empresa = document.getElementById('empresa').value;
+    // E assim por diante para outros inputs...
+
+    // Criar objeto com os dados do formulário
+    var formData = {
+        name: name,
+        email: email,
+        $empresa: empresa,
+        $receber_email: checkbox,
+        honeypot: '', // Se algum valor for recebido neste campo, a submissão do formulário será ignorada.
+        accessKey: '3420cf37-5861-4204-ae15-8172870483177' // Obtenha sua chave de acesso em https://www.staticforms.xyz
+    };
+
+    // Enviar os dados do formulário para a API (por meio de fetch, ajax, etc.)
+    enviarParaAPI(formData);
+});
+
+function enviarParaAPI(formData) {
+    // Aqui você faria a lógica para enviar os dados do formulário para a API
+    // Por exemplo, usando fetch, axios, XMLHttpRequest, etc.
+    console.log('Dados do formulário:', formData);
+    // Exemplo de uso do fetch:
+    fetch('https://api.staticforms.xyz/submit', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+})
+.then(response => response.json())
+.then(data => {
+    console.log('Resposta da API:', data);
+    // Ocultar o elemento de "loading"
+    var loadingElement = document.querySelector('.loading');
+    loadingElement.style.display = 'none';
+
+    if (data.success) {
+        // Exibir mensagem de sucesso
+        var successMessage = document.querySelector('.sent-message');
+        successMessage.style.display = 'block';
+    } else {
+        // Exibir mensagem de erro genérica
+        var errorMessage = document.querySelector('.error-message');
+        errorMessage.textContent = 'Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.';
+        errorMessage.style.display = 'block';
+    }
+})
+.catch(error => {
+    console.error('Erro ao enviar para a API:', error);
+    // Ocultar o elemento de "loading" em caso de erro
+    var loadingElement = document.querySelector('.loading');
+    loadingElement.style.display = 'none';
+
+    // Exibir mensagem de erro genérica
+    var errorMessage = document.querySelector('.error-message');
+    errorMessage.textContent = 'Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.';
+    errorMessage.style.display = 'block';
+});
+
+}
+
+  </script>
+
+
+
+
 
 </body>
 
