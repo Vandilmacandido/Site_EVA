@@ -679,10 +679,6 @@ section {
   .call-to-action h3 {
     font-size: 20px;
   }
-
-  .embed-responsive-item {
-    height: 300px; /* Adjust height for smaller screens */
-  }
 }
 
 /*--------------------------------------------------------------
