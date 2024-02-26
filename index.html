@@ -148,7 +148,7 @@
           <div class="tab-pane" id="tab-2">
             <div class="row gy-4">
               <div class="col-lg-6 order-2 order-lg-1">
-                <h3>Agilidade</h3>
+                <h3>Comunicação</h3>
                 <p>
                   Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                   velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
@@ -174,7 +174,7 @@
           <div class="tab-pane" id="tab-3">
             <div class="row gy-4">
               <div class="col-lg-6 order-2 order-lg-1">
-                <h3>Pariatur</h3>
+                <h3>Agilidade</h3>
                 <p>
                   Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                   velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
@@ -233,7 +233,7 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h4>E-mail:</h4>
-                  <p>info@example.com</p>
+                  <p>contato@evastrategy.com</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -265,15 +265,15 @@
                   <input type="email" class="form-control" name="email" id="email" placeholder="Seu e-mail" required>
               </div>
               <label>
-                  <input type="checkbox" name="$receber_email" id="receber_email" value="sim" data-namelabel="Ao selecionar esta caixa e enviar seus dados, iremos entrar em contato para garantir seu acesso a nossa plataforma assim como enviar as orientações necessárias." aria-label="Ao selecionar esta caixa e enviar seus dados, iremos entrar em contato para garantir seu acesso a nossa plataforma assim como enviar as orientações necessárias.">
+                  <input type="checkbox" name="$receber_email" id="receber_email" value="sim" required data-namelabel="Ao selecionar esta caixa e enviar seus dados, iremos entrar em contato para garantir seu acesso a nossa plataforma assim como enviar as orientações necessárias." aria-label="Ao selecionar esta caixa e enviar seus dados, iremos entrar em contato para garantir seu acesso a nossa plataforma assim como enviar as orientações necessárias.">
                   Ao selecionar esta caixa e enviar seus dados, iremos entrar em contato para garantir seu acesso a nossa plataforma assim como enviar as orientações necessárias.
               </label>
               <div class="my-3">
                   <div class="loading" style="display: none;">Loading</div>
-                  <div class="error-message" style="display: none;"> Erro</div>
-                  <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
+                  <div class="error-message" style="display: none;"> Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.</div>
+                  <div class="sent-message" style="display: none;">Sua mensagem foi enviada.</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+            <div class="text-left"><button type="submit">Quero conhecer</button></div>
           </form>
           </div><!-- End Contact Form -->
 
@@ -364,85 +364,6 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/video.js"></script>
   
-
-  <script>
-    document.getElementById("email-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    // Exibir o elemento de "loading"
-    var loadingElement = document.querySelector('.loading');
-    loadingElement.style.display = 'block';
-
-    // Pegar os valores dos inputs
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let checkbox = document.getElementById('receber_email').value;
-    let empresa = document.getElementById('empresa').value;
-    // E assim por diante para outros inputs...
-
-    // Criar objeto com os dados do formulário
-    var formData = {
-        name: name,
-        email: email,
-        $empresa: empresa,
-        $receber_email: checkbox,
-        honeypot: '', // Se algum valor for recebido neste campo, a submissão do formulário será ignorada.
-        accessKey: '3420cf37-5861-4204-ae15-817287048317' // Obtenha sua chave de acesso em https://www.staticforms.xyz
-    };
-
-    // Enviar os dados do formulário para a API (por meio de fetch, ajax, etc.)
-    enviarParaAPI(formData);
-});
-
-function enviarParaAPI(formData) {
-    // Aqui você faria a lógica para enviar os dados do formulário para a API
-    // Por exemplo, usando fetch, axios, XMLHttpRequest, etc.
-    console.log('Dados do formulário:', formData);
-    // Exemplo de uso do fetch:
-    fetch('https://api.staticforms.xyz/submit', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
-})
-.then(response => response.json())
-.then(data => {
-    console.log('Resposta da API:', data);
-    // Ocultar o elemento de "loading"
-    var loadingElement = document.querySelector('.loading');
-    loadingElement.style.display = 'none';
-
-    if (data.success) {
-        // Exibir mensagem de sucesso
-        var successMessage = document.querySelector('.sent-message');
-        successMessage.style.display = 'block';
-    } else {
-        // Exibir mensagem de erro genérica
-        var errorMessage = document.querySelector('.error-message');
-        errorMessage.textContent = 'Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.';
-        errorMessage.style.display = 'block';
-    }
-})
-.catch(error => {
-    console.error('Erro ao enviar para a API:', error);
-    // Ocultar o elemento de "loading" em caso de erro
-    var loadingElement = document.querySelector('.loading');
-    loadingElement.style.display = 'none';
-
-    // Exibir mensagem de erro genérica
-    var errorMessage = document.querySelector('.error-message');
-    errorMessage.textContent = 'Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.';
-    errorMessage.style.display = 'block';
-});
-
-}
-
-  </script>
-
-
-
-
 
 </body>
 

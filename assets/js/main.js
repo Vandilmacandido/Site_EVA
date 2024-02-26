@@ -235,3 +235,80 @@
 
 })()
 
+
+ /**
+   * Contact
+   */
+
+document.getElementById("email-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  // Exibir o elemento de "loading"
+  var loadingElement = document.querySelector('.loading');
+  loadingElement.style.display = 'block';
+
+  // Pegar os valores dos inputs
+  let name = document.getElementById('name').value;
+  let email = document.getElementById('email').value;
+  let checkbox = document.getElementById('receber_email').value;
+  let empresa = document.getElementById('empresa').value;
+  // E assim por diante para outros inputs...
+
+  // Criar objeto com os dados do formulário
+  var formData = {
+      name: name,
+      email: email,
+      $empresa: empresa,
+      $receber_email: checkbox,
+      honeypot: '', // Se algum valor for recebido neste campo, a submissão do formulário será ignorada.
+      accessKey: '3420cf37-5861-4204-ae15-817287048317' // Obtenha sua chave de acesso em https://www.staticforms.xyz
+  };
+
+  // Enviar os dados do formulário para a API (por meio de fetch, ajax, etc.)
+  enviarParaAPI(formData);
+});
+
+function enviarParaAPI(formData) {
+  // Aqui você faria a lógica para enviar os dados do formulário para a API
+  // Por exemplo, usando fetch, axios, XMLHttpRequest, etc.
+  console.log('Dados do formulário:', formData);
+  // Exemplo de uso do fetch:
+  fetch('https://api.staticforms.xyz/submit', {
+  method: 'POST',
+  headers: {
+      'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(formData)
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Resposta da API:', data);
+  // Ocultar o elemento de "loading"
+  var loadingElement = document.querySelector('.loading');
+  loadingElement.style.display = 'none';
+
+  if (data.success) {
+      // Exibir mensagem de sucesso
+      var successMessage = document.querySelector('.sent-message');
+      successMessage.style.display = 'block';
+  } else {
+      // Exibir mensagem de erro genérica
+      var errorMessage = document.querySelector('.error-message');
+      errorMessage.textContent = 'Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.';
+      errorMessage.style.display = 'block';
+  }
+})
+.catch(error => {
+  console.error('Erro ao enviar para a API:', error);
+  // Ocultar o elemento de "loading" em caso de erro
+  var loadingElement = document.querySelector('.loading');
+  loadingElement.style.display = 'none';
+
+  // Exibir mensagem de erro genérica
+  var errorMessage = document.querySelector('.error-message');
+  errorMessage.textContent = 'Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.';
+  errorMessage.style.display = 'block';
+});
+
+}
+
