@@ -173,6 +173,19 @@ h6 {
   color: #fff;
 }
 
+.navbar img {
+  margin: 0;
+  max-height: 20px;
+}
+
+@media (max-width: 991px) {
+  
+  .navbar img {
+    display: none;
+  }
+}
+
+
 .navbar .dropdown ul {
   display: block;
   position: absolute;
@@ -380,11 +393,17 @@ h6 {
   font-family: "Poppins", sans-serif;
 }
 
+#hero .inicio img{
+  display: block; /* Exibe a imagem */
+}
+
 @media (max-width: 991px) {
-  #hero h1 {
-    color: #F2A30F;
+  #hero .inicio img {
+    display: none; /* Oculta a imagem */
   }
 }
+
+
 
 #hero h2 {
   color: #515f7d;
@@ -422,8 +441,52 @@ h6 {
   top: 8.5px;
 }
 
-#hero .download-btn+.download-btn {
-  margin-left: 20px;
+#hero button[type=submit] {
+  background: var(--color-primary);
+  border: 0;
+  padding: 13px 50px;
+  color: var(--color-white);
+  transition: 0.4s;
+  border-radius: 0;
+}
+
+#hero button[type=submit]:hover {
+  background: rgba(var(--color-primary-rgb), 0.85);
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media(max-width: 991px){
+  #hero button[type=submit] {
+    background: #F2A30F;
+    border: 0;
+    padding: 13px 50px;
+    color: var(--color-white);
+    transition: 0.4s;
+    border-radius: 0;
+  }
+
+  #hero button[type=submit]:hover {
+    background: #fdcd74;
+  }
+  
+  @keyframes animate-loading {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 @media (max-width: 991px) {
@@ -994,4 +1057,15 @@ section {
   background: #F2A30F;
   color: #fff;
   text-decoration: none;
+}
+#footer .imagem img{
+  margin: 0;
+  max-height: 35px;
+}
+
+@media (max-width: 991px){
+  #footer .imagem img{
+    margin: 0;
+    max-height: 35px;
+  } 
 }
