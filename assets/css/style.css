@@ -181,7 +181,8 @@ h6 {
 @media (max-width: 991px) {
   
   .navbar img {
-    display: none;
+    /* display: none; */
+    width: 4%;
   }
 }
 
@@ -723,6 +724,20 @@ section {
   }
 }
 
+@media (max-width: 768px) {
+  .features h3 {
+    font-size: 25px;
+  }
+
+  .features .nav-link h4 {
+    font-size: 16px;
+  }
+
+  .features .tab-pane h3 {
+    font-size: 25px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Call To Action Section
 --------------------------------------------------------------*/
@@ -746,7 +761,7 @@ section {
 
 @media (max-width: 768px) {
   .call-to-action h3 {
-    font-size: 20px;
+    font-size: 25px;
   }
 }
 
@@ -768,7 +783,7 @@ section {
 
 .contact .info h3 {
   font-weight: 600;
-  font-size: 24px;
+  font-size: 25px;
 }
 
 .contact .info p {
@@ -900,6 +915,12 @@ section {
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact h3 {
+    font-size: 25px;
   }
 }
 
