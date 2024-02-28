@@ -261,7 +261,8 @@ document.getElementById("email-form").addEventListener("submit", function(event)
       $empresa: empresa,
       $receber_email: checkbox,
       honeypot: '', // Se algum valor for recebido neste campo, a submissão do formulário será ignorada.
-      accessKey: '3420cf37-5861-4204-ae15-817287048317' // Obtenha sua chave de acesso em https://www.staticforms.xyz
+      accessKey: '3420cf37-5861-4204-ae15-8172870483177' // Obtenha sua chave de acesso em https://www.staticforms.xyz
+      // accessKey: '3fb87b94-f827-45bb-8e1b-f3bbce172ce8' // Obtenha sua chave de acesso em https://www.staticforms.xyz
   };
 
   // Enviar os dados do formulário para a API (por meio de fetch, ajax, etc.)
@@ -291,11 +292,34 @@ function enviarParaAPI(formData) {
       // Exibir mensagem de sucesso
       var successMessage = document.querySelector('.sent-message');
       successMessage.style.display = 'block';
+
+
+       // Limpar os campos do formulário
+       document.getElementById('name').value = '';
+       document.getElementById('email').value = '';
+       document.getElementById('empresa').value = '';
+       document.getElementById('receber_email').checked = false;
+
+       // Ocultar a mensagem de sucesso após 8 segundos (3000 milissegundos)
+      setTimeout(function() {
+        successMessage.style.display = 'none';
+    }, 8000);
+
   } else {
       // Exibir mensagem de erro genérica
       var errorMessage = document.querySelector('.error-message');
-      errorMessage.textContent = 'Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.';
       errorMessage.style.display = 'block';
+
+      // Limpar os campos do formulário
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('empresa').value = '';
+      document.getElementById('receber_email').checked = false;
+
+      // Ocultar a mensagem de erro após 8 segundos (3000 milissegundos)
+      setTimeout(function() {
+        errorMessage.style.display = 'none';
+      }, 8000);
   }
 })
 .catch(error => {
@@ -306,7 +330,6 @@ function enviarParaAPI(formData) {
 
   // Exibir mensagem de erro genérica
   var errorMessage = document.querySelector('.error-message');
-  errorMessage.textContent = 'Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.';
   errorMessage.style.display = 'block';
 });
 
