@@ -261,8 +261,7 @@ document.getElementById("email-form").addEventListener("submit", function(event)
       $empresa: empresa,
       $receber_email: checkbox,
       honeypot: '', // Se algum valor for recebido neste campo, a submissão do formulário será ignorada.
-      accessKey: '3420cf37-5861-4204-ae15-8172870483177' // Obtenha sua chave de acesso em https://www.staticforms.xyz
-      // accessKey: '3fb87b94-f827-45bb-8e1b-f3bbce172ce8' // Obtenha sua chave de acesso em https://www.staticforms.xyz
+      accessKey: '3fb87b94-f827-45bb-8e1b-f3bbce172ce8' // Obtenha sua chave de acesso em https://www.staticforms.xyz
   };
 
   // Enviar os dados do formulário para a API (por meio de fetch, ajax, etc.)
