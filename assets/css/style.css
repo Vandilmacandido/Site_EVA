@@ -453,7 +453,7 @@ h6 {
   padding: 13px 50px;
   color: var(--color-white);
   transition: 0.4s;
-  border-radius: 0;
+  border-radius: 10px;
 }
 
 #hero button[type=submit]:hover {
@@ -477,7 +477,7 @@ h6 {
     padding: 13px 50px;
     color: var(--color-white);
     transition: 0.4s;
-    border-radius: 0;
+    border-radius: 10px;
   }
 
   #hero button[type=submit]:hover {
@@ -566,6 +566,7 @@ section {
   margin-bottom: 0;
 }
 
+
 /*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
@@ -625,7 +626,7 @@ section {
 # Features Section
 --------------------------------------------------------------*/
 .features .nav-tabs {
-  border: 0;
+  border-radius: 20px;
 }
 
 .features h3 {
@@ -649,6 +650,11 @@ section {
   cursor: pointer;
   height: 100%;
 }
+
+.features .nav-link{
+  border-radius: 10px;
+}
+
 
 .features .nav-link i {
   font-size: 32px;
@@ -683,6 +689,9 @@ section {
 
 .features .tab-content {
   margin-top: 30px;
+}
+.features .tab-content img{
+  border-radius: 20px;
 }
 
 .features .tab-pane.active {
