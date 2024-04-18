@@ -411,9 +411,15 @@ h6 {
  margin-top: -35px;
 }
 #hero h2 {
-  color: #515f7d;
+  color: #2a53a0;
   margin-bottom: 40px;
   font-size: 20px;
+}
+
+#hero h3 {
+  color: #515f7d;
+  margin-bottom: 40px;
+  font-size: 18px;
 }
 
 @media (max-width: 991px) {
